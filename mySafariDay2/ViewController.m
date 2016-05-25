@@ -20,6 +20,8 @@
 - (IBAction)onPlusButtonPressed:(UIButton *)sender;
 @property double lastContentOffset;
 
+- (IBAction)Go:(UIButton *)sender;
+
 
 
 @end
@@ -30,6 +32,7 @@
     self.webView.scrollView.delegate = self;
     [super viewDidLoad];
     [self loadFromString:@"http://www.google.com"];
+    self.urlTextField.text= @"Enter website address";
 }
 
 -(void)loadFromString:(NSString *)urlString {
@@ -126,5 +129,8 @@
     }
 
     
+}
+- (IBAction)Go:(UIButton *)sender {
+    [self loadFromString:self.urlTextField.text];
 }
 @end
